@@ -1,5 +1,7 @@
 class MessagesController < ApplicationController
 
+  before_action :devise_session
+
   def index
     @messages = Message.all
   end
@@ -27,5 +29,9 @@ class MessagesController < ApplicationController
   private
   def message_params
     params.permit(:name, :text, :image)
+  end
+
+  def devise_session
+    redirect_to new_user_session_path unless user_signed_in?
   end
 end
