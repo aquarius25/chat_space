@@ -62,7 +62,10 @@
   </div>
 
     <div class="form">
-      <form class="js-form" id="new_message" enctype="multipart/form-data" action="/groups/28242/messages" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="l7hmF74AUl+0JjO0NfUBYqJhx7355MzMihSOSgRq4kvTIkgn9frUA52QntRu0svyhEFHaS28SSambFDaI7n1pA=="><input class="form__message js-content" placeholder="type a message" type="text" name="message[content]" id="message_content">
+      <form class="js-form" id="new_message" enctype="multipart/form-data" action="/groups/28242/messages" accept-charset="UTF-8" method="post">
+        <input name="utf8" type="hidden" value="✓">
+        <input type="hidden" name="authenticity_token" value="l7hmF74AUl+0JjO0NfUBYqJhx7355MzMihSOSgRq4kvTIkgn9frUA52QntRu0svyhEFHaS28SSambFDaI7n1pA==">
+        <input class="form__message js-content" placeholder="type a message" type="text" name="message[text]" id="message_content">
         <div class="form__mask">
           <label class="form__mask__image" for="message_image"><i class="fas fa-image"></i>
           <input class="hidden js-file" type="file" name="message[image]" id="message_image">
