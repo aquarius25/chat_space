@@ -1,0 +1,75 @@
+<div class="wrapper">
+  <div class="side-bar">
+    <div class="header">
+      <h3 class="header__name">
+      aqua
+      </h3>
+      <ul class="header__lists">
+        <li class="list">
+          <a href="/groups/new"><i class="fas fa-edit"></i></a>
+        </li>
+        <li class="list">
+          <a href="/users/12002/edit"><i class="fa fa-cog icon"></i></a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="groups">
+      <div class="group">
+        <a href="/groups/28242/messages">
+          <div class="group__name">
+            group-name
+          </div>
+          <div class="group__message">
+            group-message
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat">
+    <div class="header">
+      <div class="left-header">
+        <div class="left-header__title">
+        group-name
+        </div>
+          <ul class="left-header__members">
+          Member：
+            <li class="member">
+            aqua
+            </li>
+            <li class="member">
+            omk
+            </li>
+          </ul>
+        </div>
+      <div class="right-header">
+        <a class="right-header__button" href="/groups/28242/edit">Edit</a>
+      </div>
+    </div>
+
+  <div class="messages js-messages">
+    <div class="message">
+      <div class="upper-message">
+        <div class="upper-message__user-name">aqua</div>
+        <div class="upper-message__date">2018/12/12 09:55</div>
+      </div>
+      <div class="lower-message">
+        <p class="lower-message__content">message-content</p>
+      </div>
+    </div>
+  </div>
+
+    <div class="form">
+      <form class="js-form" id="new_message" enctype="multipart/form-data" action="/groups/28242/messages" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="l7hmF74AUl+0JjO0NfUBYqJhx7355MzMihSOSgRq4kvTIkgn9frUA52QntRu0svyhEFHaS28SSambFDaI7n1pA=="><input class="form__message js-content" placeholder="type a message" type="text" name="message[content]" id="message_content">
+        <div class="form__mask">
+          <label class="form__mask__image" for="message_image"><i class="fas fa-image"></i>
+          <input class="hidden js-file" type="file" name="message[image]" id="message_image">
+          </label>
+        </div>
+        <input type="submit" name="commit" value="Send" class="form__submit" data-disable-with="Send">
+      </form>
+    </div>
+  </div>
+</div>
