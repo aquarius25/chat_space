@@ -4,6 +4,12 @@
       <h3 class="header__name">
       aqua
       </h3>
+
+           <% if user_signed_in? %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <% else %>
+            <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+        <% end %>
       <ul class="header__lists">
         <li class="list">
           <a href="/groups/new"><i class="fas fa-edit"></i></a>
