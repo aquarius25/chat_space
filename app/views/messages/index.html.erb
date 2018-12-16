@@ -4,6 +4,12 @@
       <h3 class="header__name">
       aqua
       </h3>
+
+           <% if user_signed_in? %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <% else %>
+            <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+        <% end %>
       <ul class="header__lists">
         <li class="list">
           <a href="/groups/new"><i class="fas fa-edit"></i></a>
@@ -50,26 +56,26 @@
     </div>
 
   <div class="messages js-messages">
-    <div class="message">
-      <div class="upper-message">
-        <div class="upper-message__user-name">aqua</div>
-        <div class="upper-message__date">2018/12/12 09:55</div>
+    <% @messages.each do |message| %>
+      <div class="message">
+        <div class="upper-message">
+          <div class="upper-message__user-name"><%= message.name %></div>
+          <div class="upper-message__date"><%= message.created_at %></div>
+        </div>
+        <div class="lower-message">
+          <p class="lower-message__content"><%= message.text %></p>
+        </div>
       </div>
-      <div class="lower-message">
-        <p class="lower-message__content">message-content</p>
-      </div>
-    </div>
+    <% end %>
   </div>
 
     <div class="form">
-      <form class="js-form" id="new_message" enctype="multipart/form-data" action="/groups/28242/messages" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="l7hmF74AUl+0JjO0NfUBYqJhx7355MzMihSOSgRq4kvTIkgn9frUA52QntRu0svyhEFHaS28SSambFDaI7n1pA=="><input class="form__message js-content" placeholder="type a message" type="text" name="message[content]" id="message_content">
-        <div class="form__mask">
-          <label class="form__mask__image" for="message_image"><i class="fas fa-image"></i>
-          <input class="hidden js-file" type="file" name="message[image]" id="message_image">
-          </label>
-        </div>
-        <input type="submit" name="commit" value="Send" class="form__submit" data-disable-with="Send">
-      </form>
+      <%= form_tag('/messages', method: :post) do %>
+        <input placeholder="Nickname" type="text" name="name">
+        <input placeholder="Image Url" type="text" name="image">
+        <textarea cols="30" name="text" placeholder="text" rows="1"></textarea>
+        <input type="submit" value="SENT">
+      <% end %>
     </div>
   </div>
 </div>
