@@ -64,17 +64,22 @@
         </div>
         <div class="lower-message">
           <p class="lower-message__content"><%= message.text %></p>
+          <div class="lower-message__image"><img src="<%= message.image %>" alt="image"></div>
         </div>
       </div>
     <% end %>
   </div>
 
     <div class="form">
-      <%= form_tag('/messages', method: :post) do %>
-        <input placeholder="Nickname" type="text" name="name">
-        <input placeholder="Image Url" type="text" name="image">
-        <textarea cols="30" name="text" placeholder="text" rows="1"></textarea>
-        <input type="submit" value="SENT">
+      <%= form_tag("/messages",method: :post, class: "js-form", id: "new_message", multipart: true) do %>
+        <input class="form__message" name="text" placeholder="Type a message" id="message_content">
+        <div class="form__mask">
+          <label class="form__mask__image">
+            <i class="fas fa-image"></i>
+            <input class="hidden" type="file" name="image" id="message_image">
+          </label>
+        </div>
+        <input type="submit" value="send" class="form__submit">
       <% end %>
     </div>
   </div>
