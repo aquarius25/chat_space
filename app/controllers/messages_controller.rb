@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-
+  protect_from_forgery expect: :create
   before_action :devise_session
 
   def index
@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    Message.create(name:message_params[:name],text:message_params[:text],image:message_params[:image])
+    Message.create(text: message_params[:text],image: message_params[:image])
     redirect_to action: :index
   end
 
@@ -28,7 +28,7 @@ class MessagesController < ApplicationController
 
   private
   def message_params
-    params.permit(:name, :text, :image)
+    params.permit(:text, :image)
   end
 
   def devise_session
