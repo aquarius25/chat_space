@@ -65,3 +65,4 @@ gem 'compass-rails','3.1.0'
 gem 'sprockets', '3.7.2'
 gem "devise"
 gem "carrierwave"
+gem 'rmagick', '~> 2.16'
