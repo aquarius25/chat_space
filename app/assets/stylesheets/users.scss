@@ -18,7 +18,30 @@ div {
     display: block;
 }
 
+// lef-side
 .account-page {
+    display: flex;
+    input[type="submit"] {
+        float: left;
+        margin-top: 20px;
+        color: #fff;
+        background-color: #38aef0;
+    }
+    .field {
+        margin-bottom: 10px;
+        .field-label {
+            padding: 10px 0;
+            letter-spacing: 1px;
+            font-size: 14px;
+            font-weight: 200;
+        }
+        .field-input input {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 10px;
+            letter-spacing: 1px;
+        }
+    }
     .btn {
         display: inline-block;
         height: 50px;
@@ -41,7 +64,12 @@ div {
             float: left;
             width: 50%;
         }
+        .account-page__inner--right {
+            float: right;
+            width: 50%;
+        }
     }
+
     .account-page__header h2{
         margin-bottom: 10px;
         letter-spacing: 3px;
@@ -66,5 +94,4 @@ div {
         background-color: #ccc;
         font-size: 14px;
     }
-
 }
