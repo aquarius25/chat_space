@@ -1,0 +1,70 @@
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    color: #000;
+    display: block;
+    background: #fff;
+}
+
+body {
+    display: block;
+}
+
+div {
+    display: block;
+}
+
+.account-page {
+    .btn {
+        display: inline-block;
+        height: 50px;
+        padding: 0 30px;
+        line-height: 50px;
+        letter-spacing: 1px;
+        text-align: center;
+        border: none;
+        border-radius: 2px;
+    }
+    .account-page__inner {
+        box-sizing: border-box;
+        width: 960px;
+        margin: 60px auto;
+        padding: 60px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        .account-page__inner--left {
+            float: left;
+            width: 50%;
+        }
+    }
+    .account-page__header h2{
+        margin-bottom: 10px;
+        letter-spacing: 3px;
+        font-size: 40px;
+        font-weight: 200;
+        h2:after {
+            content: '';
+            display: block;
+            width: 60px;
+            margin-top: 5px;
+            border-bottom: 1px solid #38aef0;
+        }
+    }
+    .account-page__header h5 {
+        margin-bottom: 20px;
+        font-size: 14px;
+        font-weight: 200;
+    }
+    .account-page__header .btn {
+        margin-top: 20px;
+        color: #fff;
+        background-color: #ccc;
+        font-size: 14px;
+    }
+
+}
