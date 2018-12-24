@@ -43,13 +43,13 @@
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
-|image|string|
-|users_id|integer|null: false|
-|group_id|integer|null: false|
+|image|string|null: true|
+|users_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
-- belongs_to :user
+- belongs_to :group
 
 
 
