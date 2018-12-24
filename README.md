@@ -18,7 +18,6 @@
 |------|----|-------|
 |name|string|null: false, unipue: true|
 |email|string|null: false, unique: true|
-|group_id|integer|null false|
 
 
 ### Association
@@ -32,7 +31,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, unipue: true|
-|users_id|integer|null: false|
 
 ### Association
 - has_many :messages
@@ -46,6 +44,8 @@
 |------|----|-------|
 |text|text|null: false|
 |image|string|
+|users_id|integer|null: false|
+|group_id|integer|null: false|
 
 ### Association
 - belongs_to :user
