@@ -15,9 +15,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |username|string|null: false, unipue: true|
-|email|string|null: false|
-|message_id|string|null: false|
-|group_id|string|null false|
+|email|string|null: false, unique: true|
+|message_id|integer|null: false|
+|group_id|integer|null false|
 
 
 ### Association
@@ -31,12 +31,28 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, unipue: true|
-|message_id|string|null: false|
-|users_id|string|null: false|
+|message_id|integer|null: false|
+|users_id|integer|null: false|
 
 ### Association
 - has_many :messages
-- has_many :users, though: :mem
+- has_many :users, though: :members
 - has_many :members
 
 ---
+
+## messagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|text|null: false|
+|image|string|
+|users_id|integer|null: false|
+|group_id|integer|null: false|
+
+### Association
+- belongs_to :user
+- belongs_to :user
+
+
+
+
