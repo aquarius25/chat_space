@@ -1,5 +1,4 @@
 class MessagesController < ApplicationController
-  protect_from_forgery expect: :create
   before_action :devise_session
 
   def index
