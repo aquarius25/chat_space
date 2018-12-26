@@ -127,54 +127,35 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // 右下
 
 .chat .form {
-    background-color: #DDDDDD;
-    box-sizing: border-box;
-    height: 90px;
-    padding: 20px 50px 20px 40px;
-}
-
-.chat .form__message {
+  background-color: #DDDDDD;
+  box-sizing: border-box;
+  height: 90px;
+  padding: 20px 50px 20px 40px;
+  &__message {
     border: none;
     box-sizing: border-box;
     float: left;
     height: 50px;
     padding: 0 10px;
     width: calc(100% - 150px);
-}
-
-.chat .form__mask {
+  }
+  &__mask {
     background-color: #fff;
     float: left;
     height: 50px;
     padding-right: 10px;
-}
-
-.chat .form__mask__image {
-    font-size: 20px;
-    line-height: 50px;
-}
-
-.chat .form__mask .hidden {
-    display: none;
-}
-
-.chat .form__submit {
+    &__image {
+      font-size: 20px;
+      line-height: 50px;
+    }
+    .hidden {
+      display: none;
+    }
+  }
+  &__submit {
     background-color: #38AEF0;
     border: none;
     color: #fff;
@@ -183,5 +164,14 @@
     height: 50px;
     margin-left: 15px;
     padding: 0 30px;
+  }
 }
+
+
+
+
+
+
+
+
 }
