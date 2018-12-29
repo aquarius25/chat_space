@@ -2,7 +2,7 @@
   .side-bar
     .header
       %h3.header__name
-        = current_user.username
+        = current_user.name
       %ul.header__lists
         %li.list
           %a{href: "/groups/new"}
@@ -34,7 +34,7 @@
       - @messages.each do |message|
         .message
           .upper-message
-            .upper-message__user-name= current_user.username
+            .upper-message__user-name= current_user.name
             .upper-message__date= message.created_at
           .lower-message
             %p.lower-message__content= message.text
