@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
 
+  before_action :devise_session
   before_action :set_group, only: [:edit, :update]
 
   def index
@@ -36,4 +37,7 @@ private
     @group = Group.find(params[:id])
   end
 
+  def devise_session
+    redirect_to new_user_session_path unless user_signed_in?
+  end
 end
