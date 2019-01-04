@@ -14,15 +14,7 @@
       .right-header
         %a.right-header__button{href: "/groups/#{current_user.id}/edit"} Edit
     .messages.js-messages
-      - @messages.each do |message|
-        .message
-          .upper-message
-            .upper-message__user-name= current_user.name
-            .upper-message__date= message.created_at
-          .lower-message
-            %p.lower-message__content= message.text
-            .lower-message__image
-              %img{alt: "image", src: "#{message.image.thumb.url}"}/
+      = render @messages
     .form
       = form_for [@group,@message] do |f|
         = f.text_field :text, class: "form__message", placeholder: "Type a message"
