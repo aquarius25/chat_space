@@ -11,7 +11,7 @@
             - @group.users.each do |user|
               = user.name
       .right-header
-        %a.right-header__button{href: "/groups/#{current_user.id}/edit"} Edit
+        %a.right-header__button{href: "/groups/#{@group.id}/edit"} Edit
     .messages.js-messages
       = render @messages
     .form
