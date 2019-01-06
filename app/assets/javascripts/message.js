@@ -39,8 +39,6 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $(".messages").append(html)
-      $(".lower-message__image").css('max-height','300px');
-      $(".lower-message__image").css('max-width','300px');
       $('#new-message')[0].reset()
       $('.js-messages').animate({scrollTop: $('.js-messages')[0].scrollHeight});
     })

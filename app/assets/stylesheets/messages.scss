@@ -125,6 +125,10 @@
     }
     .lower-message {
       font-size: 20px;
+      &__image {
+        max-height: 300px;
+        max-width: 300px;
+      }
     }
   }
 }
