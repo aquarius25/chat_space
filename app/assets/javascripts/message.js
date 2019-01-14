@@ -1,4 +1,5 @@
-$(function(){
+// 投稿の非同期通信メッセージの内容
+$(document).on("turbolinks:load", function(){
   function buildHTML(message) {
     image = (message.image === null) ? "" :
                   `<img src="${message.image}"
@@ -24,6 +25,7 @@ $(function(){
     return html;
   }
 
+// 投稿の非同期通信処理の処理内容
   $("#new-message").on("submit", function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -49,5 +51,6 @@ $(function(){
       $('.form__submit').prop('disabled',false);
     })
   })
+
 });
 
