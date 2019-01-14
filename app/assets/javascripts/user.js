@@ -1,7 +1,6 @@
 // インクリメンタルサーチの処理 group/edit chat-memberの部分
 $(document).on("turbolinks:load", function() {
 
-
 // 関数や変数
   var searchResult = $("#user-search-result");
 
@@ -21,7 +20,6 @@ $(document).on("turbolinks:load", function() {
   }
 
 
-
   var members = $("#chat-group-users")
 
   function addUser(id, name) {
@@ -32,8 +30,6 @@ $(document).on("turbolinks:load", function() {
                 </div>`
     members.append(html);
   }
-
-
 
 // 処理の内容
   $("#user-search-field").on("keyup", function(){
@@ -61,7 +57,6 @@ $(document).on("turbolinks:load", function() {
     })
   });
 
-
   $(document).on("click", ".user-search-add", function(){
     var user_id = $(this).data("user-id")
     var user_name = $(this).data("user-name")
@@ -72,6 +67,5 @@ $(document).on("turbolinks:load", function() {
   $(document).on("click", ".user-search-remove", function() {
     $(this).parent().remove();
   });
-
 
 });

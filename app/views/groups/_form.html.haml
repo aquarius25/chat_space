@@ -6,16 +6,12 @@
         - @group.errors.full_messages.each do |message|
           %li= message
 
-
-
   / 編集するグループ名
   .chat-group-form__field
     .chat-group-form__field--left
       = f.label :name, class: 'chat-group-form__label'
     .chat-group-form__field--right
       = f.text_field :name, class: 'chat__group_name chat-group-form__input', placeholder: 'グループ名を入力してください'
-
-
 
   / メンバーを追加するためのフォーム
   .chat-group-form__field.clearfix
@@ -25,8 +21,6 @@
       .chat-group-form__search.clearfix
         %input#user-search-field.chat-group-form__input{placeholder: "追加したいユーザー名を入力してください"}
       #user-search-result
-
-
 
   / 追加したメンバー名全てを表示
   .chat-group-form__field.clearfix
@@ -38,8 +32,6 @@
           %input{name: "group[user_ids][]", type: "hidden", value: "#{current_user.id}"}
           %p.chat-group-user__name
             = current_user.name
-
-
 
   / 情報の更新ボタン
   .chat-group-form__field.clearfix
