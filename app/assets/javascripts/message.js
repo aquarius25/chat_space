@@ -52,5 +52,28 @@ $(document).on("turbolinks:load", function(){
     })
   })
 
+    // 自動更新機能実装の処理
+    var intervel = setInterval(function() {
+      if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+    $.ajax({
+      url: location.href.json,
+    })
+    .done(function(json){
+      var id = $(".message").data("messageId");
+      var insertHTML = "";
+      json.messages.forEach(function(message){
+        if(message.id > id) {
+        insertHTMl += buildHTML(message);
+        }
+      });
+      $(".js-messages").prepend(insertHTMl);
+    })
+    .fail(function(data){
+      alert("自動更新に失敗しました");
+    });
+  } else {
+    clearInterval(interval);
+  }}, 5000);
+
 });
 
