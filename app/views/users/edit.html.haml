@@ -7,16 +7,16 @@
       = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn"
       = link_to "トップページに戻る", "/", class: "btn"
     .account-page__inner--right.user-form
-      %form#edit_user.edit_user{action: "/users", method: "post"}
+      = form_for(current_user) do |f|
         .field
           .field-label
-            %label{for: "user_name"} Name
+            = f.label :Name
           .field-input
-            %input#user_name{autofocus: "autofocus", name: "name", type: "text", :value => "#{@users.name}"}/
+            = f.text_field :name, autofocus: true
         .field
           .field-label
-            %label{for: "user_email"} Email
+            = f.label :Email
           .field-input
-            %input#user_email{name: "email", type: "email", value: "#{@users.email}"}/
+            = f.email_field :email
         .actions
-          %input.btn{name: "commit", type: "submit", value: "update"}/
+          = f.submit "Update", class: "btn"
