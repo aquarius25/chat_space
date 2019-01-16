@@ -6,7 +6,7 @@ $(document).on("turbolinks:load", function(){
                   class="lower-message__image">
                   `
 
-    var html = `<div class="message">
+    var html = `<div class="message" data-message-id="${message.id}">
                   <div class="upper-message">
                     <div class="upper-message__user-name">
                       ${message.user_name}
@@ -53,20 +53,25 @@ $(document).on("turbolinks:load", function(){
   })
 
     // 自動更新機能実装の処理
-    var intervel = setInterval(function() {
+    var interval = setInterval(function() {
       if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+        var lastMessageId = $(".message:last").data("message-id") ||0;
     $.ajax({
       url: location.href.json,
+      type: "GET",
+      data: "id: lastMessageId",
+      dataType: "json",
+      processData: false,
+      contentType: false
     })
-    .done(function(json){
-      var id = $(".message").data("messageId");
+    .done(function(data){
+      var id = $(".message").data("message-id")
       var insertHTML = "";
-      json.messages.forEach(function(message){
-        if(message.id > id) {
-        insertHTMl += buildHTML(message);
-        }
+      data.forEach(function(message) {
+        insertHTMl = buildHTML(message);
+      $(".js-messages").append(insertHTMl);
+      $(".js-messages").animate({scrollTop: $(".js-message")[0].scrollHeight});
       });
-      $(".js-messages").prepend(insertHTMl);
     })
     .fail(function(data){
       alert("自動更新に失敗しました");
