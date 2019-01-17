@@ -53,32 +53,30 @@ $(document).on("turbolinks:load", function(){
   })
 
     // 自動更新機能実装の処理
-    var interval = setInterval(function() {
-      if (window.location.href.match(/\/groups\/\d+\/messages/)) {
-        var lastMessageId = $(".message:last").data("message-id") ||0;
-    $.ajax({
-      url: location.href.json,
-      type: "GET",
-      data: "id: lastMessageId",
-      dataType: "json",
-      processData: false,
-      contentType: false
-    })
-    .done(function(data){
-      var id = $(".message").data("message-id")
-      var insertHTML = "";
-      data.forEach(function(message) {
-        insertHTMl = buildHTML(message);
-      $(".js-messages").append(insertHTMl);
-      $(".js-messages").animate({scrollTop: $(".js-message")[0].scrollHeight});
+  var interval = setInterval(function() {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+      var lastMessageId = $(".message:last").data("message-id") || 0;
+      $.ajax({
+        url: location.href,
+        type: "GET",
+        data: { id: lastMessageId },
+        dataType: "json"
+      })
+      .done(function(data){
+        var id = $(".message").data("message-id")
+        var insertHTML = "";
+        data.forEach(function(message) {
+          insertHTMl = buildHTML(message);
+        $(".js-messages").append(insertHTMl);
+        $(".js-messages").animate({scrollTop: $(".js-messages")[0].scrollHeight}, "fast");
+        });
+      })
+      .fail(function(data){
+        alert("自動更新に失敗しました");
       });
-    })
-    .fail(function(data){
-      alert("自動更新に失敗しました");
-    });
-  } else {
-    clearInterval(interval);
-  }}, 5000);
+    } else {
+      clearInterval(interval);
+    }}, 5000);
 
 });
 
