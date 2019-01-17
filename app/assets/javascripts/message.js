@@ -63,15 +63,15 @@ $(document).on("turbolinks:load", function(){
         dataType: "json"
       })
       .done(function(data){
-        var id = $(".message").data("message-id")
         var insertHTML = "";
+        console.log();
         data.forEach(function(message) {
           insertHTMl = buildHTML(message);
         $(".js-messages").append(insertHTMl);
         $(".js-messages").animate({scrollTop: $(".js-messages")[0].scrollHeight}, "fast");
         });
       })
-      .fail(function(data){
+      .fail(function(){
         alert("自動更新に失敗しました");
       });
     } else {
