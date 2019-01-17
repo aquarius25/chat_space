@@ -6,7 +6,7 @@ $(document).on("turbolinks:load", function(){
                   class="lower-message__image">
                   `
 
-    var html = `<div class="message">
+    var html = `<div class="message" data-message-id="${message.id}">
                   <div class="upper-message">
                     <div class="upper-message__user-name">
                       ${message.user_name}
@@ -52,5 +52,29 @@ $(document).on("turbolinks:load", function(){
     })
   })
 
+    // 自動更新機能実装の処理
+  var interval = setInterval(function() {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+      var lastMessageId = $(".message:last").data("message-id") || 0;
+      $.ajax({
+        url: location.href,
+        type: "GET",
+        data: { id: lastMessageId },
+        dataType: "json"
+      })
+      .done(function(data){
+        var insertHTML = "";
+        data.forEach(function(message) {
+          insertHTMl = buildHTML(message);
+        $(".js-messages").append(insertHTMl);
+        $(".js-messages").animate({scrollTop: $(".js-messages")[0].scrollHeight}, "fast");
+        });
+      })
+      .fail(function(){
+        alert("自動更新に失敗しました");
+      });
+    } else {
+      clearInterval(interval);
+    }}, 5000);
 });
 
