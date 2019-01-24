@@ -1,10 +1,4 @@
-
-
-require 'capistrano/rbenv'
-require 'capistrano/bundler'
-require 'capistrano/rails/assets'
-require 'capistrano/rails/migrations'
-require 'capistrano3/unicorn'# Load DSL and set up stages
+# Load DSL and set up stages
 require "capistrano/setup"
 
 # Include default deployment tasks
@@ -39,6 +33,7 @@ install_plugin Capistrano::SCM::Git
 # require "capistrano/rails/assets"
 # require "capistrano/rails/migrations"
 # require "capistrano/passenger"
+
 
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
