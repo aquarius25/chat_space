@@ -78,5 +78,5 @@ group :development, :test do
   gem "capistrano-rbenv"
   gem "capistrano-bundler"
   gem "capistrano-rails"
-  gem "capistrano-unicorn"
+  gem "capistrano3-unicorn" #capistrano-unicornのままだったらerrorがでた
 end
