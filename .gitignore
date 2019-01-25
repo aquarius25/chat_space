@@ -32,3 +32,5 @@
 *.jpg
 
 *.png
+
+config/secrets.yml
