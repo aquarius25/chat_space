@@ -1,11 +1,10 @@
 // 投稿の非同期通信メッセージの内容
-$(document).on("turbolinks:load", function(){
+$(function(){
   function buildHTML(message) {
     image = (message.image === null) ? "" :
                   `<img src="${message.image}"
                   class="lower-message__image">
                   `
-
     var html = `<div class="message" data-message-id="${message.id}">
                   <div class="upper-message">
                     <div class="upper-message__user-name">
@@ -55,7 +54,11 @@ $(document).on("turbolinks:load", function(){
     // 自動更新機能実装の処理
   var interval = setInterval(function() {
     if (window.location.href.match(/\/groups\/\d+\/messages/)) {
-      var lastMessageId = $(".message:last").data("message-id") || 0;
+      if ($(".message")[0]){
+      var lastMessageId = $(".message:last").data("message-id");
+      } else {
+        var lastMessageId = 0
+      }
       $.ajax({
         url: location.href,
         type: "GET",
@@ -63,6 +66,7 @@ $(document).on("turbolinks:load", function(){
         dataType: "json"
       })
       .done(function(data){
+        console.log(data);
         var insertHTML = "";
         data.forEach(function(message) {
           insertHTMl = buildHTML(message);
