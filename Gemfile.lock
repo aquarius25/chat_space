@@ -174,6 +174,13 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     kgio (2.11.2)
+<<<<<<< HEAD
+=======
+    listen (3.1.5)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+      ruby_dep (~> 1.2)
+>>>>>>> auto-reload-function
     loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -328,7 +335,11 @@ DEPENDENCIES
   turbolinks (~> 5)
   tzinfo-data
   unicorn
+<<<<<<< HEAD
   web-console (~> 2.0)
+=======
+  web-console (>= 3.3.0)
+>>>>>>> auto-reload-function
 
 RUBY VERSION
    ruby 2.3.1p112
