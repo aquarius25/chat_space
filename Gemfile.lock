@@ -338,14 +338,8 @@ DEPENDENCIES
   turbolinks (~> 5)
   tzinfo-data
   unicorn
-<<<<<<< HEAD
-<<<<<<< HEAD
-  web-console (~> 2.0)
-=======
-=======
->>>>>>> auto-reload-function
   web-console (>= 3.3.0)
->>>>>>> auto-reload-function
+
 
 RUBY VERSION
    ruby 2.3.1p112
