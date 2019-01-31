@@ -1,5 +1,5 @@
 // 投稿の非同期通信メッセージの内容
-$(function(){
+$(document).on("turbolinks:load",function(){
   function buildHTML(message) {
     image = (message.image === null) ? "" :
                   `<img src="${message.image}"
