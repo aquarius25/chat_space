@@ -66,7 +66,6 @@ $(document).on("turbolinks:load",function(){
         dataType: "json"
       })
       .done(function(data){
-        console.log(data);
         var insertHTML = "";
         data.forEach(function(message) {
           insertHTMl = buildHTML(message);
