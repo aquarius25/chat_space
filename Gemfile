@@ -68,6 +68,8 @@ gem "carrierwave"
 gem 'rmagick', '~> 2.16'
 gem "haml-rails"
 gem "erb2haml"
+gem 'fog-aws'
+
 
 group :production do
   gem 'unicorn'
